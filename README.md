@@ -22,8 +22,9 @@
         }
 
         .cartao {
-            width: 210mm;
-            height: 148mm;
+            width: min(210mm, 95vw);
+            aspect-ratio: 210 / 148;
+            height: auto;
             position: relative;
             overflow: hidden;
             background: #0a0a0a;
@@ -286,7 +287,54 @@
         .e7 { top: 7%; left: 30%; }
         .e8 { top: 35%; left: 90%; }
 
-        /* Impressão */
+        
+        @media (max-width: 768px) {
+            body {
+                flex-direction: column;
+                height: auto;
+                padding: 10px;
+                gap: 20px;
+            }
+
+            .cartao {
+                width: 100%;
+                max-width: 500px;
+                height: auto;
+                aspect-ratio: 210 / 148;
+            }
+
+            .titulo-capa {
+                font-size: 18px;
+                letter-spacing: 2px;
+                padding: 6px 12px;
+            }
+
+            .titulo-capa span { font-size: 11px; }
+
+            .mensagem { width: 90%; padding: 12px; }
+
+            .mensagem h1 { font-size: 18px; }
+
+            .mensagem .alert { font-size: 14px; }
+
+            .mensagem .culpado {
+                font-size: 22px;
+                letter-spacing: 2px;
+            }
+
+            .mensagem .parabens { font-size: 14px; }
+
+            .mensagem .final { font-size: 15px; }
+
+            .lua {
+                width: 20px;
+                height: 20px;
+            }
+
+            .morcego { font-size: 14px; }
+        }
+
+/* Impressão */
         @media print {
             body { margin: 0; padding: 0; }
             .cartao { width: 100%; height: 100%; page-break-after: always; }
